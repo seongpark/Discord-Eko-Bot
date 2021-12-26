@@ -228,4 +228,4 @@ client.on('messageCreate', async (message) => {
 });
 
 // 디스코드 클라이언트 토큰 (유출금지 ㄹㅇ찐임)
-client.login('token');
+client.login(process.env.TOKEN);
