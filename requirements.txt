@@ -1,2 +1,1 @@
-discord.js
-node.js
+discord.j
