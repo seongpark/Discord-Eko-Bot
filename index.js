@@ -12,26 +12,30 @@ const UpdateTime = 5000;
 let wallet = 1000;
 
 //캐캐오 주가변경 알고리즘
-const kakao = 1000;
+const kakao = 800;
 let kakaMove = 0;
 let kakaoJusik = '주가 정보 불러오기에 실패하였습니다.';
 let kakaoVa = '주가 정보 불러오기에 실패했습니다.';
 let kakaoIfDownOrUp = 0;
 let UpOrDownMessage = '주가 정보 불러오기에 실패했습니다.';
-let MyHave = [''];
+
+//캐캐오 구매 저장
 let myjusik_1 = undefined;
+
+//지갑 주식확인
+let MyHave = [''];
 
 //구매감지
 let sell = undefined;
 
-//while (true){
+while (true){
 setTimeout(function () {
 	//캐캐오 랜덤값 설정
 	kakaoMove = Math.floor(Math.random() * 20) + 8;
 	console.log('kakaoMove : ' + kakaoMove);
 
 	//오를까 내릴까 설정
-	kakaoIfDownOrUp = Math.floor(Math.random() * 1 + 2);
+	kakaoIfDownOrUp = Math.floor(Math.random() * 2 + 1);
 	console.log(kakaoIfDownOrUp);
 }, UpdateTime);
 
@@ -54,7 +58,7 @@ setTimeout(function () {
 	kakaoVa = kakaoJusik - kakao;
 	console.log('kakaoVa : ' + kakaoVa);
 }, UpdateTime);
-//}
+}
 
 client.on('messageCreate', (message) => {
 	//시세확인
@@ -143,8 +147,9 @@ client.on('messageCreate', (message) => {
 	
 	//주식구매
 	if (message.content === '이코야') {
-		message.channel.send('```이코봇 도움말\n \n이코야 구매 [주식명] : 주식을 구매합니다.\n이코야 구매 확인 [주식명] : 주식을 확인 절차 없이 바로 구매하니 조심해서 사용해주세요!\n이코야 판매 [주식명] : 주식을 판매합니다.\n이코야 판매 확인 [주식명] : 주식을 확인 절차 없이 바로 판매하니 조심해서 사용해주세요!\n이코야 지갑 : 나의 보유 주식과 보유한 돈을 확인합니다.\n이코야 : 이코봇에 대한 도움말을 표시합니다.```');
+		message.channel.send('```이코봇 도움말\n \n이코야 현재시세 : 지금 주식들의 시세를 표시합니다.\n이코야 구매 [주식명] : 주식을 구매합니다.\n이코야 구매 확인 [주식명] : 주식을 확인 절차 없이 바로 구매하니 조심해서 사용해주세요!\n이코야 판매 [주식명] : 주식을 판매합니다.\n이코야 판매 확인 [주식명] : 주식을 확인 절차 없이 바로 판매하니 조심해서 사용해주세요!\n이코야 지갑 : 나의 보유 주식과 보유한 돈을 확인합니다.\n이코야 : 이코봇에 대한 도움말을 표시합니다.```');
 	}
+	
 	if (!message.guild) return;
 	if (message.author.bot) return;
 });
