@@ -227,4 +227,4 @@ client.on('messageCreate', async (message) => {
 });
 
 // 디스코드 클라이언트 토큰 (유출금지 ㄹㅇ찐임)
-client.login('OTIyNDcyMDg0NDY1MTM1NjE2.YcB9Ew.C0-ufBsUEU2_kOJIM9wSzemnxhE');
+client.login('token');
