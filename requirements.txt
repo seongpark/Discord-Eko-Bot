@@ -1,1 +1,1 @@
-discord.j
+discord.js
