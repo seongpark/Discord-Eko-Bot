@@ -27,12 +27,12 @@ const kakao = 800;
 let myjusik_1 = undefined;
 
 //지갑 주식확인
-let MyHave = [''];
+let MyHave = ['보유한 주식이 없습니다.'];
 
 //구매감지
 let sell = undefined;
 
-while (true){
+//while (true){
 setTimeout(function () {
 	//캐캐오 랜덤값 설정
 	kakaoMove = Math.floor(Math.random() * 20) + 8;
@@ -62,7 +62,6 @@ setTimeout(function () {
 	kakaoVa = kakaoJusik - kakao;
 	console.log('kakaoVa : ' + kakaoVa);
 }, UpdateTime);
-};
 
 client.on('messageCreate', async (message) => {
 	//시세확인
@@ -95,6 +94,7 @@ client.on('messageCreate', async (message) => {
 			myjusik_1 = 0;
 			wallet = wallet + kakaoJusik;
 			MyHave.splice('캐캐오');
+			MyHave[MyHave.length] = '보유한 주식이 없습니다.';
 			const exampleEmbed = new MessageEmbed()
 				.setColor('#FE9A2E')
 				.setTitle('판매가 완료되었습니다.')
@@ -150,6 +150,7 @@ client.on('messageCreate', async (message) => {
 			//구매의사 저장
 			buy = '구매완료';
 			console.log(sell);
+			MyHave.splice('보유한 주식이 없습니다.');
 
 			//지갑에서 돈 차감
 			if (buy == '구매완료') {
